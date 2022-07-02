@@ -29,6 +29,17 @@ const mostrarReloj = () => {
     let min = formatoHora(fecha.getMinutes());
     let seg = formatoHora(fecha.getSeconds());
     document.getElementById('hora').innerHTML =`${hr}:${min}:${seg}`;
+    //logica mes dia año
+    const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov'];
+    const dias = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+    let diaSemana = dias[fecha.getDay()]
+    console.log(fecha.getDay())
+    let dia = fecha.getDate()
+    console.log(dia)
+    let mes = meses[fecha.getMonth()]
+    let fechaTexto = `${diaSemana}, ${dia} ${mes}`
+    document.getElementById('fecha').innerHTML = fechaTexto;
+    document.getElementById('contenedor').classList.toggle('animar')
 }
 const formatoHora = (hora) => {
     if(hora < 10){
